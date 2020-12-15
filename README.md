@@ -10,3 +10,10 @@ Biblioteca que inicia a execuçao sempre que o projeto muda
 Se der problema de segurança
 ### Set-ExecutionPolicy RemoteSigned
 E depois instala o nodemon de novo 
+
+
+### npm install --save mongodb
+Instalar o mongo db no pc e a bilbioteca no projeto
+
+###   npm install --save mongoose
+instalar o mongoose, ele traduz os dados para javascript
