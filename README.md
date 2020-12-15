@@ -17,3 +17,6 @@ Instalar o mongo db no pc e a bilbioteca no projeto
 
 ###   npm install --save mongoose
 instalar o mongoose, ele traduz os dados para javascript
+
+### node app.js 
+Para startar
