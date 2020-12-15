@@ -19,4 +19,11 @@ Instalar o mongo db no pc e a bilbioteca no projeto
 instalar o mongoose, ele traduz os dados para javascript
 
 ### node app.js 
+###  nodemon app.js
 Para startar
+
+### npm install --save cors
+Para permitir a requisição do banco 
+
+### var cors = require('cors')
+adiciona cors abaixo do mongoose

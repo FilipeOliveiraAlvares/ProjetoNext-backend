@@ -1,11 +1,22 @@
-var express = require('express');
+const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 
 require('./models/home');
 const Home = mongoose.model('Home');
 
-var app = express();
+const app = express();
+
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", 'GET, PUT, POST, DELETE');
+    res.header("Access-Control-Allow-Headers", 'X-PINGOTHER, Content-Type, Authorization');
+
+    app.use(cors());
+    next();
+})
+
 
 app.use(express.json());
 
@@ -24,10 +35,17 @@ mongoose.connect('mongodb://localhost/backenddb',
 // })
 
 app.get("/home", (req, res) => {
-    return res.json({
-        error: false,
-        mensage: "info pg home"
-    });
+    Home.findOne({}).then((home) => {
+        return res.json(home);
+    }).catch((err) => {
+
+        return res.status(400).json({
+            error: true,
+            mensage: "Nenhum registro encontrado."
+        });
+
+    })
+
 });
 
 app.post("/home", (req, res) => {
